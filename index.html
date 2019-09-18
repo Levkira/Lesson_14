@@ -83,7 +83,9 @@
             this.doubleTopping = true;
         };
         Hamburger.prototype.addTopping = function(topping) {
-            this.topping.push(topping);
+                if(! this.topping.includes(topping)) {
+                    this.topping.push(topping);
+                }
         };
         Hamburger.prototype.addFries = function() {
             this.withFries = true;
@@ -123,7 +125,7 @@
             return priceOfSize + priceOfPatty + priceOfTopping + priceOfFries;
         }; 
         Hamburger.prototype.calculatePrice = function() {
-            return this.calculatePriceHam;
+            return this.calculatePriceHam();
         }
         
         Hamburger.prototype.calculateCaloriesHam = function() {
@@ -196,8 +198,9 @@
             return this.calculatePriceHam() + priceOfCheese;
         };
         
-        const bigMac = new Hamburger(Hamburger.SIZE_SMALL);
-        const maccheese = new Cheeseburger(Hamburger.SIZE_SMALL);
+        const bigMac = new Hamburger(Hamburger.SIZE_BIG);
+
+        const macCheese = new Cheeseburger(Hamburger.SIZE_SMALL);
         
     
 	</script>
